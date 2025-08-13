@@ -1,0 +1,164 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    align-content: space-evenly;
+
+    background-image: url('morning.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    transition: background-image 0.5s ease-in-out;
+}
+
+button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+.box, .inner-box {
+    border: 2px solid darkorchid ;
+    width: 40vw;
+}
+
+.box{
+    margin-top: 10px;
+    border-radius: 15px;
+    display: flex;
+    flex-shrink: 0;
+    height: 30px;
+    background-color: pink;
+    padding: 10px;
+    cursor: pointer; 
+    transition: border-radius 0.25s ease;
+    transition: filter 0.3s ease;
+    align-items: center;
+    justify-content: space-between;
+}
+.box:hover {
+    filter: brightness(90%);
+}
+
+.box::after {
+    content: "+";
+    font-size: 20px;
+    font-weight: bold;
+    transition: transform 0.25s ease;
+}
+
+.box.open {
+    border-bottom: none;
+    border-radius: 15px 15px 0 0; 
+}
+
+.box.open::after {
+    content: "-"; 
+}
+
+.inner-box{
+    border-top: none; 
+    border-radius: 0 0 15px 15px; 
+    flex-shrink: 0;
+    height: 16vw;
+    background-color: hotpink;
+    padding: 10px;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 350ms ease, opacity 250ms ease;
+}
+
+.inner-box.show {
+    max-height: 200px; 
+    opacity: 1;
+}
+.inner-box::-webkit-scrollbar {
+    display: none;
+}
+
+.scroll-text {
+    height: 100%;
+    overflow-y: scroll;
+    padding-right: 250px;
+    line-height: 1.2;
+}
+.fixed-img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 250px;
+    border-radius: 10px;
+}
+
+.sticky {
+    position: sticky;
+    top: 10px;
+}
+.sticky img {
+    width: 235px;
+    border-radius: 10px;
+}
+
+.img-credits {
+    position: fixed;
+    bottom: -34px; 
+    left: 0px; 
+    width: 500px;
+    z-index: 1000;
+
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    animation: pulseGlow 1.5s infinite alternate;
+}
+
+.BgButton {
+    position: fixed;
+    bottom: 0px; 
+    left: 300px; 
+    z-index: 1000;
+    width: 200px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    animation: pulseGlow 1.5s infinite alternate;
+}
+.BgButton:hover {
+    animation: none;
+    filter: brightness(90%);
+}
+
+.Title {
+    position: fixed;
+    top: -15px;
+    left: -80px;
+    width: 500px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.9));
+    animation: pulseGlow 1.5s infinite alternate;
+}
+.Title:hover {
+    animation: none;
+    filter: brightness(90%);
+}
+
+
+@keyframes pulseGlow {
+  from {
+    filter: drop-shadow(0 0 10px rgba(255, 153, 233, 0.6));
+  }
+  to {
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.9));
+  }
+}
+
